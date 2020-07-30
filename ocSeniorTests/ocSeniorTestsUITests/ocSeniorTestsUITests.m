@@ -1,6 +1,6 @@
 //
-//  OCDailyTestsUITests.m
-//  OCDailyTestsUITests
+//  ocSeniorTestsUITests.m
+//  ocSeniorTestsUITests
 //
 //  Created by LongMa on 2020/7/30.
 //  Copyright © 2020 hautu. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface OCDailyTestsUITests : XCTestCase
+@interface ocSeniorTestsUITests : XCTestCase
 
 @end
 
-@implementation OCDailyTestsUITests
+@implementation ocSeniorTestsUITests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.

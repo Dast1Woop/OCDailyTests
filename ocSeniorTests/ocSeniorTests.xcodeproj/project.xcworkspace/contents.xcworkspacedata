@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:OCDailyTests.xcodeproj">
+      location = "self:ocSeniorTests.xcodeproj">
    </FileRef>
 </Workspace>
