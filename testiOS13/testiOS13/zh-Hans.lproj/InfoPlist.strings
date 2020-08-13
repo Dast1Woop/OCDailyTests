@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  testiOS13
+
+  Created by LongMa on 2020/8/13.
+  Copyright © 2020 hautu. All rights reserved.
+*/
+"CFBundleDisplayName" = "中文名";
+"UILaunchStoryboardName" = "LaunchScreen"; 

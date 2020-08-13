@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t9U-90-Kgn"/>
+                        <viewControllerLayoutGuide type="bottom" id="cuI-OD-C2d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3" userLabel="HolderView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topV" translatesAutoresizingMaskIntoConstraints="NO" id="WJO-Yz-9SH" userLabel="imgTopView">
+                                <rect key="frame" x="137" y="61" width="140" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WJO-Yz-9SH" secondAttribute="height" multiplier="146:61" constant="-36.918032786885249" id="637-GH-Sik"/>
+                                    <constraint firstAttribute="width" constant="140" id="CbW-zw-8bz"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImg-en" translatesAutoresizingMaskIntoConstraints="NO" id="7UN-2k-BuN" userLabel="imgBottomView">
+                                <rect key="frame" x="157" y="576" width="100" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7UN-2k-BuN" secondAttribute="height" multiplier="5:3" id="X1t-IR-L2G"/>
+                                    <constraint firstAttribute="width" constant="100" id="mqn-8o-6yt"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7UN-2k-BuN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="58m-cI-H5s"/>
+                            <constraint firstItem="cuI-OD-C2d" firstAttribute="top" secondItem="7UN-2k-BuN" secondAttribute="bottom" constant="100" id="6Ak-bd-3nJ"/>
+                            <constraint firstItem="WJO-Yz-9SH" firstAttribute="top" secondItem="t9U-90-Kgn" secondAttribute="bottom" constant="61" id="Vhg-87-fjz"/>
+                            <constraint firstItem="WJO-Yz-9SH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fqG-VK-5ow"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.5" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchImg-en" width="1366" height="568"/>
+        <image name="topV" width="430" height="178"/>
+    </resources>
+</document>
