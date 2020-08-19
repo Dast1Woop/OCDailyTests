@@ -42,7 +42,8 @@
 - (void)testNSTimer{
     
     //口诀：“weak strong dance，strong must exists”
-    //block内如果有self，易造成循环引用;__weak可以打破循环引用
+    //block内如果有self，易造成循环引用;__weak可以打破循环引用；
+    //不建议使用带target:参数的类方法创建timer（此方法要破解循环引用，需要给NSTimer写分类，并用分类中方法创建。效果同iOS10+ 可用的，下面演示的 + (NSTimer *)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^)(NSTimer *timer))block 方法）
     __weak typeof(self) weakSelf = self;
     NSTimer *lTimer = [NSTimer timerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
         
