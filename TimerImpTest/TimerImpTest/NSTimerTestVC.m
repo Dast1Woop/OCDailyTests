@@ -84,7 +84,7 @@
     }
     
     if (self.gNSTimer.valid) {
-        self.isTimerExcuting = NO;
+        self.gIsTimerExcuting = NO;
         self.gNSTimer.fireDate = [NSDate distantFuture];
     }else{
         NSLog(@"timer 无效");
@@ -92,7 +92,7 @@
 }
 
 - (IBAction)resumeBtnDC:(id)sender {
-    if (self.isTimerExcuting) {
+    if (self.gIsTimerExcuting) {
         return;
     }
  
