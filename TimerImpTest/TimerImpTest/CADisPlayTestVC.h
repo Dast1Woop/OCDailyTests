@@ -1,5 +1,5 @@
 //
-//  SecondVC.h
+//  CADisPlayTestVC.h
 //  TimerImpTest
 //
 //  Created by LongMa on 2020/8/19.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SecondVC : UIViewController
+@interface CADisPlayTestVC : UIViewController
 
 @end
 

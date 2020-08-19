@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  SecondVC.h
 //  TimerImpTest
 //
 //  Created by LongMa on 2020/8/19.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
-@property (strong, nonatomic) UIWindow * window;
+@interface NSTimerTestVC : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

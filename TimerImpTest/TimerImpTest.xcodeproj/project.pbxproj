@@ -16,8 +16,11 @@
 		C220D7E924ED081A00F18D42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D7E824ED081A00F18D42 /* main.m */; };
 		C220D7F324ED081A00F18D42 /* TimerImpTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D7F224ED081A00F18D42 /* TimerImpTestTests.m */; };
 		C220D7FE24ED081A00F18D42 /* TimerImpTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D7FD24ED081A00F18D42 /* TimerImpTestUITests.m */; };
-		C220D80D24ED086600F18D42 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D80C24ED086600F18D42 /* SecondVC.m */; };
+		C220D80D24ED086600F18D42 /* NSTimerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D80C24ED086600F18D42 /* NSTimerTestVC.m */; };
 		C220D81024ED117400F18D42 /* weakStrongDance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220D80F24ED117400F18D42 /* weakStrongDance.swift */; };
+		C220D81424ED201700F18D42 /* CADisPlayTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D81224ED201700F18D42 /* CADisPlayTestVC.m */; };
+		C220D81524ED201700F18D42 /* CADisPlayTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C220D81324ED201700F18D42 /* CADisPlayTestVC.xib */; };
+		C220D81724ED205700F18D42 /* NSTimerTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C220D81624ED205700F18D42 /* NSTimerTestVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +59,14 @@
 		C220D7F924ED081A00F18D42 /* TimerImpTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimerImpTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C220D7FD24ED081A00F18D42 /* TimerImpTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerImpTestUITests.m; sourceTree = "<group>"; };
 		C220D7FF24ED081A00F18D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C220D80B24ED086600F18D42 /* SecondVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondVC.h; sourceTree = "<group>"; };
-		C220D80C24ED086600F18D42 /* SecondVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondVC.m; sourceTree = "<group>"; };
+		C220D80B24ED086600F18D42 /* NSTimerTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTimerTestVC.h; sourceTree = "<group>"; };
+		C220D80C24ED086600F18D42 /* NSTimerTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTimerTestVC.m; sourceTree = "<group>"; };
 		C220D80E24ED117400F18D42 /* TimerImpTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TimerImpTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		C220D80F24ED117400F18D42 /* weakStrongDance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weakStrongDance.swift; sourceTree = "<group>"; };
+		C220D81124ED201700F18D42 /* CADisPlayTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CADisPlayTestVC.h; sourceTree = "<group>"; };
+		C220D81224ED201700F18D42 /* CADisPlayTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CADisPlayTestVC.m; sourceTree = "<group>"; };
+		C220D81324ED201700F18D42 /* CADisPlayTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CADisPlayTestVC.xib; sourceTree = "<group>"; };
+		C220D81624ED205700F18D42 /* NSTimerTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NSTimerTestVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +123,12 @@
 				C220D7DA24ED081700F18D42 /* SceneDelegate.m */,
 				C220D7DC24ED081700F18D42 /* ViewController.h */,
 				C220D7DD24ED081700F18D42 /* ViewController.m */,
-				C220D80B24ED086600F18D42 /* SecondVC.h */,
-				C220D80C24ED086600F18D42 /* SecondVC.m */,
+				C220D80B24ED086600F18D42 /* NSTimerTestVC.h */,
+				C220D80C24ED086600F18D42 /* NSTimerTestVC.m */,
+				C220D81624ED205700F18D42 /* NSTimerTestVC.xib */,
+				C220D81124ED201700F18D42 /* CADisPlayTestVC.h */,
+				C220D81224ED201700F18D42 /* CADisPlayTestVC.m */,
+				C220D81324ED201700F18D42 /* CADisPlayTestVC.xib */,
 				C220D80F24ED117400F18D42 /* weakStrongDance.swift */,
 				C220D7DF24ED081700F18D42 /* Main.storyboard */,
 				C220D7E224ED081A00F18D42 /* Assets.xcassets */,
@@ -254,6 +265,8 @@
 				C220D7E624ED081A00F18D42 /* LaunchScreen.storyboard in Resources */,
 				C220D7E324ED081A00F18D42 /* Assets.xcassets in Resources */,
 				C220D7E124ED081700F18D42 /* Main.storyboard in Resources */,
+				C220D81724ED205700F18D42 /* NSTimerTestVC.xib in Resources */,
+				C220D81524ED201700F18D42 /* CADisPlayTestVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +293,9 @@
 			files = (
 				C220D7DE24ED081700F18D42 /* ViewController.m in Sources */,
 				C220D7D824ED081700F18D42 /* AppDelegate.m in Sources */,
+				C220D81424ED201700F18D42 /* CADisPlayTestVC.m in Sources */,
 				C220D7E924ED081A00F18D42 /* main.m in Sources */,
-				C220D80D24ED086600F18D42 /* SecondVC.m in Sources */,
+				C220D80D24ED086600F18D42 /* NSTimerTestVC.m in Sources */,
 				C220D81024ED117400F18D42 /* weakStrongDance.swift in Sources */,
 				C220D7DB24ED081700F18D42 /* SceneDelegate.m in Sources */,
 			);

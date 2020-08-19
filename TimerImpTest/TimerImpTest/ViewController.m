@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "SecondVC.h"
+#import "NSTimerTestVC.h"
 
 @interface ViewController ()
 
@@ -21,7 +21,7 @@
 }
 
 - (IBAction)jumpBtnDC:(id)sender {
-    SecondVC *lVC = [[SecondVC alloc] init];
+    NSTimerTestVC *lVC = [[NSTimerTestVC alloc] initWithNibName:@"NSTimerTestVC" bundle:nil];
     [self presentViewController:lVC animated:YES completion:^{
         
     }];
