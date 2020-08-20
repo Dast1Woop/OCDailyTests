@@ -7,26 +7,57 @@
 //
 
 #import "CADisPlayTestVC.h"
+#import "MYLWeakProxy.h"
 
 @interface CADisPlayTestVC ()
-
+@property(nonatomic, strong) CADisplayLink *gCADLink;
 @end
 
 @implementation CADisPlayTestVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self testCADisLink];
+    self.view.backgroundColor = [UIColor greenColor];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dealloc{
+    
+    //Removes the object from all runloop modes (releasing the receiver if it has been implicitly retained) and releases the 'target' object.
+    [self.gCADLink invalidate];
+    
+    NSLog(@"%s", __FUNCTION__);
 }
-*/
 
+- (void)testCADisLink{
+    
+    //注意说明：The newly constructed display link retains the target.用弱代理，优雅的解决循环引用问题。
+    CADisplayLink *lCAD = [CADisplayLink displayLinkWithTarget:[MYLWeakProxy proxyWithTarget:self] selector:@selector(m4cadlink:)];
+    lCAD.preferredFramesPerSecond = 2;
+    
+    self.gCADLink = lCAD;
+}
+
+- (void)m4cadlink:(CADisplayLink *)cadLink{
+    NSLog(@"%@", cadLink);
+}
+
+#pragma mark -  action
+- (IBAction)startBtnDC:(id)sender{
+    [self.gCADLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (IBAction)pauseBtnDC:(id)sender{
+    self.gCADLink.paused = YES;
+}
+
+- (IBAction)resumeBtnDC:(id)sender{
+    self.gCADLink.paused = NO;
+}
+
+- (IBAction)dismissBtnDC:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 @end

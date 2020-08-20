@@ -7,6 +7,7 @@
 //
 
 #import "NSTimerTestVC.h"
+#import "MYLWeakProxy.h"
 
 @interface NSTimerTestVC ()
 @property(nonatomic, strong) NSTimer *gNSTimer;
@@ -46,18 +47,22 @@
     //口诀：“weak strong dance，strong must exists”
     //block内如果有self，易造成循环引用;__weak可以打破循环引用；
     //不建议使用带target:参数的类方法创建timer（此方法要破解循环引用，需要给NSTimer写分类，并用分类中方法创建。效果同iOS10+ 可用的，下面演示的 + (NSTimer *)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^)(NSTimer *timer))block 方法）
-    __weak typeof(self) weakSelf = self;
-    NSTimer *lTimer = [NSTimer timerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        
-        //__strong typeof(self)，对weakSelf进行强引用，防止后面weakSelf被销毁（eg：vc被销毁引起）引发的crash;
-        //注意：不能用if(nil != weakself)代替strong行，因为多线程情况下，if判断时self未释放，但是执行 self 里面的代码时，就刚好释放了(多线程读写问题)，此时，if语句里有kvo等不兼容nil的操作时，程序会crash。
-        __strong typeof(self) sSelf = weakSelf;
-        
-        //必须判断，因为weakself在赋值给sSelf之前可能就为nil了。（1.进来后就变为nil了；2.weakself进来时不为nil，但是多线程时，到m4NSTimerSelector方法调用时，可能weakself就为nil了。）
-        if (sSelf) {
-            [sSelf m4NSTimerSelector];
-        }
-    }];
+//    __weak typeof(self) weakSelf = self;
+//    NSTimer *lTimer = [NSTimer timerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//
+//        //__strong typeof(self)，对weakSelf进行强引用，防止后面weakSelf被销毁（eg：vc被销毁引起）引发的crash;
+//        //注意：不能用if(nil != weakself)代替strong行，因为多线程情况下，if判断时self未释放，但是执行 self 里面的代码时，就刚好释放了(多线程读写问题)，此时，if语句里有kvo等不兼容nil的操作时，程序会crash。
+//        __strong typeof(self) sSelf = weakSelf;
+//
+//        //必须判断，因为weakself在赋值给sSelf之前可能就为nil了。（1.进来后就变为nil了；2.weakself进来时不为nil，但是多线程时，到m4NSTimerSelector方法调用时，可能weakself就为nil了。）
+//        if (sSelf) {
+//            [sSelf m4NSTimerSelector];
+//        }
+//    }];
+    
+    //弱代理 实现timer，写起来更简单,且无需weak strong dance。但是在dealloc中还是要调用 invalidate方法。
+    NSTimer *lTimer = [NSTimer timerWithTimeInterval:2 target:[MYLWeakProxy proxyWithTarget:self] selector:@selector(m4NSTimerSelector) userInfo:nil repeats:YES];
+    
     self.gNSTimer = lTimer;
 }
 

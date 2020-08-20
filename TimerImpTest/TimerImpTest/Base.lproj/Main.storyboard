@@ -16,17 +16,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrz-zR-fMW">
-                                <rect key="frame" x="191.5" y="433" width="31" height="30"/>
-                                <state key="normal" title="跳转"/>
+                                <rect key="frame" x="156" y="343.5" width="102" height="30"/>
+                                <state key="normal" title="跳转(NSTimer)"/>
                                 <connections>
                                     <action selector="jumpBtnDC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m5r-FH-xkT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzv-wi-rQA">
+                                <rect key="frame" x="137" y="395.5" width="140" height="30"/>
+                                <state key="normal" title="跳转(CADisplayLink)"/>
+                                <connections>
+                                    <action selector="jump2CADisPlayBtnDC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mA5-4Q-AVO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TwK-ya-XP7">
+                                <rect key="frame" x="146" y="448.5" width="122" height="30"/>
+                                <state key="normal" title="跳转(GCDSource)"/>
+                                <connections>
+                                    <action selector="jump2GCDSourceBtnDC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yhk-oz-Z4t"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rrz-zR-fMW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ipU-21-nbd"/>
+                            <constraint firstItem="dzv-wi-rQA" firstAttribute="centerX" secondItem="rrz-zR-fMW" secondAttribute="centerX" id="B1H-vI-gUH"/>
+                            <constraint firstItem="TwK-ya-XP7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="K8H-J5-E8q"/>
+                            <constraint firstItem="dzv-wi-rQA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QUr-ny-fjT"/>
+                            <constraint firstItem="TwK-ya-XP7" firstAttribute="centerX" secondItem="rrz-zR-fMW" secondAttribute="centerX" id="RBP-mt-1RJ"/>
+                            <constraint firstItem="dzv-wi-rQA" firstAttribute="top" secondItem="rrz-zR-fMW" secondAttribute="bottom" constant="22" id="Sqo-Ra-FdB"/>
+                            <constraint firstItem="rrz-zR-fMW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.8" id="ipU-21-nbd"/>
                             <constraint firstItem="rrz-zR-fMW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pnb-LX-CRu"/>
+                            <constraint firstItem="TwK-ya-XP7" firstAttribute="top" secondItem="dzv-wi-rQA" secondAttribute="bottom" constant="23" id="y8N-wQ-0h7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
