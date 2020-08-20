@@ -13,6 +13,9 @@
 @property(nonatomic, strong) NSTimer *gNSTimer;
 
 //注意：需要对定时器进行暂停，继续操作时，必须自定义是否正在执行的属性，否则连续点击继续按钮时，会一直重新fire并立刻调用方法，可能这会有副作用。
+//此类实现效果：点击继续时，会立刻执行一次，然后x秒后间隔执行。没有MYLTimer灵活。
+//若实现方法改为销毁、新建定时器，又比较耗性能。
+//故，建议使用以后定时相关，都用MYLTimer方法，既准确，又线程安全。
 @property (nonatomic, assign) BOOL gIsTimerExcuting;
 
 @property(nonatomic, copy) NSString *gStr4Test;
@@ -61,7 +64,7 @@
 //    }];
     
     //弱代理 实现timer，写起来更简单,且无需weak strong dance。但是在dealloc中还是要调用 invalidate方法。
-    NSTimer *lTimer = [NSTimer timerWithTimeInterval:2 target:[MYLWeakProxy proxyWithTarget:self] selector:@selector(m4NSTimerSelector) userInfo:nil repeats:YES];
+    NSTimer *lTimer = [NSTimer timerWithTimeInterval:5 target:[MYLWeakProxy proxyWithTarget:self] selector:@selector(m4NSTimerSelector) userInfo:nil repeats:YES];
     
     self.gNSTimer = lTimer;
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C21A72EC24EE792F002DC325 /* MYLTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = C21A72EB24EE792F002DC325 /* MYLTimer.m */; };
 		C220D7D824ED081700F18D42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D7D724ED081700F18D42 /* AppDelegate.m */; };
 		C220D7DB24ED081700F18D42 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D7DA24ED081700F18D42 /* SceneDelegate.m */; };
 		C220D7DE24ED081700F18D42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C220D7DD24ED081700F18D42 /* ViewController.m */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C21A72EA24EE792F002DC325 /* MYLTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYLTimer.h; sourceTree = "<group>"; };
+		C21A72EB24EE792F002DC325 /* MYLTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYLTimer.m; sourceTree = "<group>"; };
 		C220D7D324ED081700F18D42 /* TimerImpTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerImpTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C220D7D624ED081700F18D42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C220D7D724ED081700F18D42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				C220D81D24EE5ABE00F18D42 /* GCDSourceVC.h */,
 				C220D81E24EE5ABE00F18D42 /* GCDSourceVC.m */,
 				C220D81F24EE5ABE00F18D42 /* GCDSourceVC.xib */,
+				C21A72EA24EE792F002DC325 /* MYLTimer.h */,
+				C21A72EB24EE792F002DC325 /* MYLTimer.m */,
 				C220D82224EE6E3B00F18D42 /* MYLWeakProxy.h */,
 				C220D82324EE6E3B00F18D42 /* MYLWeakProxy.m */,
 				C220D80F24ED117400F18D42 /* weakStrongDance.swift */,
@@ -307,6 +312,7 @@
 			files = (
 				C220D82024EE5ABE00F18D42 /* GCDSourceVC.m in Sources */,
 				C220D7DE24ED081700F18D42 /* ViewController.m in Sources */,
+				C21A72EC24EE792F002DC325 /* MYLTimer.m in Sources */,
 				C220D7D824ED081700F18D42 /* AppDelegate.m in Sources */,
 				C220D82424EE6E3B00F18D42 /* MYLWeakProxy.m in Sources */,
 				C220D81424ED201700F18D42 /* CADisPlayTestVC.m in Sources */,

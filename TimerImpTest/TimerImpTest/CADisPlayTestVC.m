@@ -10,6 +10,8 @@
 #import "MYLWeakProxy.h"
 
 @interface CADisPlayTestVC ()
+
+//限制性：执行频率太快，最慢也要1s一次。
 @property(nonatomic, strong) CADisplayLink *gCADLink;
 @end
 
@@ -33,7 +35,7 @@
     
     //注意说明：The newly constructed display link retains the target.用弱代理，优雅的解决循环引用问题。
     CADisplayLink *lCAD = [CADisplayLink displayLinkWithTarget:[MYLWeakProxy proxyWithTarget:self] selector:@selector(m4cadlink:)];
-    lCAD.preferredFramesPerSecond = 2;
+    lCAD.preferredFramesPerSecond = 1;
     
     self.gCADLink = lCAD;
 }
