@@ -6,7 +6,7 @@ target 'wcdbTest' do
   use_frameworks!
 pod 'WCDB.swift'
 pod 'WCDB'
-pod 'IndoorMapFramework', '0.36.1'
+
 
   # Pods for wcdbTest
 
