@@ -40,11 +40,14 @@ typedef void (^MYLVoidBlock) (void);
     [self demo2];
 }
 
-/** 效果：在用户异步登录之后，再异步同时下载多个文件！ */
+/** 效果：在用户异步登录之后，再异步同时下载多个文件！
+ ps：真实项目中，是在afn成功回调里 添加 异步下载多个文件的操作。
+ */
 - (void)demo1 {
-    dispatch_queue_t queue = dispatch_queue_create("cn.itcast", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue = dispatch_queue_create("cn.test", DISPATCH_QUEUE_CONCURRENT);
 
-    dispatch_async(queue, ^{
+    dispatch_async(queue, ^{//不加时，登陆在主线程执行，不符合 异步 的需求
+        
         dispatch_sync(queue, ^{
             
             //此处的 异步 以通过上面的 ”dispatch_async(queue,“ 代码实现，真实代码处，此处不能再开新线程！否则无法保证在 下载文件 开始之前执行完毕。
