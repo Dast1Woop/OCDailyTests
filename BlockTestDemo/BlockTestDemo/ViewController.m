@@ -34,7 +34,59 @@ typedef void (^MYLVoidBlock) (void);
 //    [self blockChangeLocalMutStr];
 //
 //    [self blockAccessLocalModel];
-    [self blockChangeLocalModel];
+//    [self blockChangeLocalModel];
+    
+//    [self demo1];
+    [self demo2];
+}
+
+/** 效果：在用户异步登录之后，再异步同时下载多个文件！ */
+- (void)demo1 {
+    dispatch_queue_t queue = dispatch_queue_create("cn.itcast", DISPATCH_QUEUE_CONCURRENT);
+
+    dispatch_async(queue, ^{
+        dispatch_sync(queue, ^{
+            
+            //此处的 异步 以通过上面的 ”dispatch_async(queue,“ 代码实现，真实代码处，此处不能再开新线程！否则无法保证在 下载文件 开始之前执行完毕。
+            NSLog(@"用户异步登录, thread = %@", [NSThread currentThread]);
+        });
+
+        dispatch_async(queue, ^{
+            NSLog(@"再异步同时下载文件 A, thread = %@", [NSThread currentThread]);
+        });
+
+        dispatch_async(queue, ^{
+            NSLog(@"再异步同时下载文件 B, thread = %@", [NSThread currentThread]);
+        });
+
+        dispatch_async(queue, ^{
+            NSLog(@"再异步同时下载文件 C, thread = %@", [NSThread currentThread]);
+        });
+    });
+}
+
+//无法实现 ”在用户异步登录之后，再异步同时下载多个文件！“ 的效果。必须用demo1的方法才行。
+- (void)demo2 {
+    dispatch_queue_t queue = dispatch_queue_create("cn.itcast", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_sync(queue, ^{
+        dispatch_async(queue, ^{
+             NSLog(@"用户异步登录, thread = %@", [NSThread currentThread]);
+        });
+    });
+    
+    dispatch_async(queue, ^{
+        NSLog(@"再异步同时下载文件 A, thread = %@", [NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, ^{
+        NSLog(@"再异步同时下载文件 B, thread = %@", [NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, ^{
+        NSLog(@"再异步同时下载文件 C, thread = %@", [NSThread currentThread]);
+    });
+    
 }
 
 //写法参考：http://fuckingblocksyntax.com
