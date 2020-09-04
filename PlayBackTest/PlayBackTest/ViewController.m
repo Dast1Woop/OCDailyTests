@@ -10,27 +10,6 @@
  # 回放功能简单介绍
  为控制出差人员数量、减低出差成本，一般只派项目经理或测试人员去现场进行地图的定位和导航功能测试。当现场人员发现app功能不符合预期时，远程沟通不利于开发人员找到问题原因。
  于是就有了回放功能。即：在现场测试时，app需要记录现场实时检测到的相关信息，如gps坐标等。记录完毕后，把手机带回公司。开发人员通过选择已记录路段并点击”模拟回放“按钮（更改app系统数据输入源为本地记录数据），可以对现场记录的某个路段的相关信息进行从头到尾的顺序回放，从而实现从起点到终点的路线回放效果，通过观察app回放效果和相关log，方便开发人员推理问题原因。
- 
- # 回放代码实现原理：
- * app数据库存储时，现场记录的数据类型可能有多种，把所有不同种类信息统计记录到一种模型中，用一个字段区分是哪种数据；用其他字段记录相关信息和存储时间戳。
- * 存储数据量不大时，可以直接读取某条路所有条目模型到内存；数据量较大时，需要切割，分批读取，以免内存暴增导致app被杀。
- * 根据相邻模型的时间戳差值进行模拟回放。
- 
- 回放技术难点：
- * 每一种数据的相邻数据的时间间隔（最短零点几秒）不固定。
- * 数据量较大时，需要切割，分批读取
- 
- # 如何实现不同时间间隔的数据回放
- ## 思路
- ### 使用较准确的gcd相关定时器实现每 0.1s 一次回调；
- ### 在回调方法中判断是否需要真的进行回放操作；
- 定义私有属性：倒计时次数、正在执行的数组下标
- 首先计算相邻模型的时间戳差值，比如0.5s，然后为了实现0.5后才真正进行回放，需要定时器跳过4次，在第五次再真正回放，同时计算
- 
- ## log
- 
- ## 小结
- > demo地址：
  */
 #import "ViewController.h"
 #import "MYLTimer.h"
@@ -89,10 +68,10 @@
         self.gCountDownNum -= 1;
     }else{// <= 0
         //当前执行下标后面的模型是否有效：当后面日期晚于当前模型时，才有效。
-        static BOOL lIsModelAvailable = YES;
+        static BOOL lIsNextModelAvailable = YES;
         
         //下次模型有效时，才真正地执行一次回放操作
-        if (lIsModelAvailable) {
+        if (lIsNextModelAvailable) {
             [self playBackReallyWithIndex:self.gExcutingIndex];
         }
         
@@ -116,7 +95,7 @@
         float lInterval = [self getTimeIntervalWithArr:self.gArrData crtIndex:lCrtIndex nextComparedIndex:lNextComparedModelIndex];
         
         if (lInterval >= 0) {
-            lIsModelAvailable = YES;
+            lIsNextModelAvailable = YES;
             int lInter = (int)(ceilf)(lInterval * 10);
             
             //当记录的时间间隔刚好为0时，self.gCountDownNum = 0,效果是0.1s后真正执行；若大于0，都会被ceilf向上取整，此时，需要减 1。（此处赋值后到下次timer:被调用，需要花费0.1s）
@@ -128,7 +107,7 @@
         }else{
              NSLog(@"下一模型的时间戳早于当前模型时间戳，认为无效。gExcutingIndex:%d,判定下标：%d", self.gExcutingIndex, lNextComparedModelIndex);
             
-            lIsModelAvailable = NO;
+            lIsNextModelAvailable = NO;
             lNextComparedModelIndexDiff += 1;
         }
         
@@ -170,7 +149,7 @@
         //第3组：模拟 5 组，差值都是 0.54 s，预期效果：间隔0.6s依次回放
         //设置17(5组)，测试后面数据时间更早的不合理情况；
         //设置16.2(4组，临界值16.66)，测试后面数据时间更晚的合理情况；
-        float lTopNum = 17;
+        float lTopNum = 16.2;
         for (float i = 14.5; i < lTopNum; i += 0.54) {
             [lArrM addObject:@(i)];
         }
