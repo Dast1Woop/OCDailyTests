@@ -10,19 +10,13 @@
 #import "HMSingleton.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MYAccelerometerToolDelegate;
+extern NSString *const KNTFY_SHAKE_SUCCESS;
+
 
 @interface MYAccelerometerTool : NSObject
 HMSingleton_h(MYAccelerometerTool);
 
-@property (nonatomic, weak) id<MYAccelerometerToolDelegate> delegateCustom;
 - (void)startMonitorShake;
-@end
-
-@protocol MYAccelerometerToolDelegate <NSObject>
-
-- (void)dmMYAccelerometerTool:(MYAccelerometerTool *)tool didDetectShakeGesture:(double)accelerationCaled;
-
 @end
 
 NS_ASSUME_NONNULL_END

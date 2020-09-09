@@ -9,6 +9,8 @@
 #import "MYAccelerometerTool.h"
 #import <CoreMotion/CoreMotion.h>
 
+NSString *const KNTFY_SHAKE_SUCCESS = @"KNTFY_SHAKE_SUCCESS";
+
 @interface MYAccelerometerTool ()
 @property(nonatomic, strong) CMMotionManager *gMotionMnger;
 @property(nonatomic, strong) NSDate *gDateLastShakeSuc;
@@ -37,11 +39,8 @@ HMSingleton_m(MYAccelerometerTool);
             }
             
             self.gDateLastShakeSuc = lCrtDate;
-            if ([self.delegateCustom respondsToSelector:@selector(dmMYAccelerometerTool:didDetectShakeGesture:)]) {
-                [self.delegateCustom dmMYAccelerometerTool:self didDetectShakeGesture:accelerameter];
-            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:KNTFY_SHAKE_SUCCESS object:nil];
         }
-        
     }];
 }
 
