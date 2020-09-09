@@ -19,7 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[MYAccelerometerTool sharedMYAccelerometerTool] startMonitorShake];
+    BOOL lRes = [[MYAccelerometerTool sharedMYAccelerometerTool] startMonitorShake];
+    NSLog(@"lRes:%d", lRes);
+    NSAssert(lRes, @"开始监听摇一摇失败");
     
     //加速计实现后台摇一摇时，必须以 app拥有后台相关功能为前提。否则app退到后台后被挂起，会导致加速计信息获取失败。再次进入时，会发现瞬间log了很多次，说明app处于后台时，相关log指令很可能被系统缓存起来了。
     if (kCLAuthorizationStatusAuthorizedAlways ==  [CLLocationManager authorizationStatus]
@@ -28,6 +30,11 @@
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nmShakeSuccess:) name:KNTFY_SHAKE_SUCCESS object:nil];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    BOOL lRes = [[MYAccelerometerTool sharedMYAccelerometerTool] startMonitorShake];
+    NSLog(@"lRes2:%d", lRes);
 }
 
 - (void)dealloc{

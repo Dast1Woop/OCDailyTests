@@ -20,7 +20,16 @@ NSString *const KNTFY_SHAKE_SUCCESS = @"KNTFY_SHAKE_SUCCESS";
 HMSingleton_m(MYAccelerometerTool);
 
 
-- (void)startMonitorShake{
+- (BOOL)startMonitorShake{
+    if (NO == self.gMotionMnger.isAccelerometerAvailable) {
+        return NO;
+    }
+    
+    //监听中，直接返回YES
+    if (self.gMotionMnger.isAccelerometerActive) {
+        return YES;
+    }
+    
     [self.gMotionMnger startAccelerometerUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
         
         CMAcceleration acceleration = accelerometerData.acceleration;
@@ -42,6 +51,14 @@ HMSingleton_m(MYAccelerometerTool);
             [[NSNotificationCenter defaultCenter] postNotificationName:KNTFY_SHAKE_SUCCESS object:nil];
         }
     }];
+    
+    return YES;
+}
+
+- (void)stopMonitorShake{
+    [self.gMotionMnger stopAccelerometerUpdates];
+    self.gMotionMnger = nil;
+    self.gDateLastShakeSuc = nil;
 }
 
 #pragma mark -  getter
