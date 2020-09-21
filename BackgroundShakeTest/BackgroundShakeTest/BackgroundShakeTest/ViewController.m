@@ -16,6 +16,7 @@
 
 @implementation ViewController
 
+//
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,24 +33,24 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nmShakeSuccess:) name:KNTFY_SHAKE_SUCCESS object:nil];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    BOOL lRes = [[MYAccelerometerTool sharedMYAccelerometerTool] startMonitorShake];
-    NSLog(@"lRes2:%d", lRes);
-}
-
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"%s", __FUNCTION__);
 }
 
 #pragma mark -  action
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    NSLog(@"%s", __FUNCTION__);
+}
+
+//在摇一摇的同时，通过观察此方法是否有log，可以判断是否有监听到。
 - (void)nmShakeSuccess:(NSNotification *)ntfy{
     NSLog(@"%s", __FUNCTION__);
 }
 
-#pragma mark -  delegate & datasource
+#pragma mark -  delegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
-//    NSLog(@"%s", __FUNCTION__);
+    NSLog(@"%s", __FUNCTION__);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{

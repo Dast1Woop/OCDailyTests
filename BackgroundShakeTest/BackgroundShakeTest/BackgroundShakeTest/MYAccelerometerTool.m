@@ -13,6 +13,9 @@ NSString *const KNTFY_SHAKE_SUCCESS = @"KNTFY_SHAKE_SUCCESS";
 
 @interface MYAccelerometerTool ()
 @property(nonatomic, strong) CMMotionManager *gMotionMnger;
+
+
+/// 时间对象，用于实现节流效果（为防止频繁回调，每次检测成功后，停止摇动1s后才继续响应下次摇一摇。）
 @property(nonatomic, strong) NSDate *gDateLastShakeSuc;
 @end
 
