@@ -70,7 +70,6 @@ HMSingleton_m(MYAccelerometerTool);
         CMMotionManager *lMnger = [[CMMotionManager alloc] init];
         lMnger.accelerometerUpdateInterval = 0.1;
         [lMnger startAccelerometerUpdates];
-        //[self.gMotionMnger stopAccelerometerUpdates];
         _gMotionMnger = lMnger;
     }
     return _gMotionMnger;
