@@ -257,23 +257,23 @@
 }
 
 + (NSString *)getSubHexStrWithLastBitsNum:(int)bitsNum ofOriginHexStr:(NSString *)originHexStr{
-    NSString *lStr = nil;
+
     if ([originHexStr hasPrefix:@"0x"]
         ||[originHexStr hasPrefix:@"0X"]) {
         if (originHexStr.length <= 2) {
             return  nil;
         }
-        lStr = [originHexStr substringFromIndex:2];
+        originHexStr = [originHexStr substringFromIndex:2];
     }
     
-    NSUInteger length = lStr.length;
+    NSUInteger length = originHexStr.length;
     if (bitsNum >= length * 4) {
-        return lStr;
+        return originHexStr;
     }
     
     int notChangeLastNums = bitsNum / 4;
-    NSString *lNotChangeLastStr = [lStr substringWithRange:(NSMakeRange(lStr.length - notChangeLastNums, notChangeLastNums))];
-    NSString *lSpecialOneCha = [lStr substringWithRange:NSMakeRange(lStr.length - notChangeLastNums - 1, 1)];
+    NSString *lNotChangeLastStr = [originHexStr substringWithRange:(NSMakeRange(originHexStr.length - notChangeLastNums, notChangeLastNums))];
+    NSString *lSpecialOneCha = [originHexStr substringWithRange:NSMakeRange(originHexStr.length - notChangeLastNums - 1, 1)];
     
     //附加的需截取的字符数
     int lChaNum4Append = bitsNum % 4;
