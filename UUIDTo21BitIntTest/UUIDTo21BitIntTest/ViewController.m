@@ -75,8 +75,8 @@
     NSLog(@"lArrM:%@",lArrM);
 
     [lArrM enumerateObjectsUsingBlock:^(NSString*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *lBinaryStr = [NSString getBinaryByhex:obj];
-        int lInt = [[NSString toDecimalSystemWithBinarySystem:lBinaryStr] intValue];
+        NSString *lBinaryStr = [NSString toDecimalSystemWithHexSystem:obj];
+        int lInt = [lBinaryStr intValue];
         NSLog(@"%d",lInt);
     }];
    

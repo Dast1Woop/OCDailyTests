@@ -202,6 +202,11 @@
     
     return result;
 }
+
++ (NSString *)toDecimalSystemWithHexSystem:(NSString *)hexStr{
+    NSString *lBinaryStr = [NSString getBinaryByhex:hexStr];
+    return [NSString toDecimalSystemWithBinarySystem:lBinaryStr];
+}
  
  
 //二进制转十六进制
