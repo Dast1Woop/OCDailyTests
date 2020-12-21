@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface KeyChainStore : NSObject
+@interface MYLKeyChainStore : NSObject
 
 // 将UUID保存到钥匙串
 + (void)save:(NSString *)service data:(id)data;

@@ -7,7 +7,7 @@
 
 #import "NSString+UUIDStoredInKeyChain.h"
 #import <UIKit/UIKit.h>
-@class KeyChainStore;
+@class MYLKeyChainStore;
 
 static NSString *  KEY_USERNAME_PASSWORD = @"com.huatu.chunYaMap";
 
@@ -15,14 +15,14 @@ static NSString *  KEY_USERNAME_PASSWORD = @"com.huatu.chunYaMap";
 
 +(NSString *)getUUID
 {
-    NSString * strUUID = (NSString *)[KeyChainStore load:KEY_USERNAME_PASSWORD];
+    NSString * strUUID = (NSString *)[MYLKeyChainStore load:KEY_USERNAME_PASSWORD];
     //首次执行该方法时，uuid为空
     if ([strUUID isEqualToString:@""] || !strUUID)
     {
         //获取UUID
         strUUID = [UIDevice currentDevice].identifierForVendor.UUIDString;
         //将该uuid保存到keychain
-        [KeyChainStore save:KEY_USERNAME_PASSWORD data:strUUID];
+        [MYLKeyChainStore save:KEY_USERNAME_PASSWORD data:strUUID];
             
         //iPhone 8
         //11.2版本最初安装应用UUID FD6A5FE3-9EB4-422B-ADD3-17B313B9C8DE
@@ -43,7 +43,7 @@ static NSString *  KEY_USERNAME_PASSWORD = @"com.huatu.chunYaMap";
 
 #pragma mark -- KeyChainStore
 
-@implementation KeyChainStore
+@implementation MYLKeyChainStore
 
 + (NSMutableDictionary *)getKeychainQuery:(NSString *)service
 {
