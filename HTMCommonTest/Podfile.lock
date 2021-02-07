@@ -1,0 +1,28 @@
+PODS:
+  - iConsole (1.5.3)
+  - MTDates (1.0.3)
+  - Toast (4.0.0)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - iConsole (~> 1.5.3)
+  - MTDates (~> 1.0.3)
+  - Toast (~> 4.0.0)
+  - YYModel (= 1.0.4)
+
+SPEC REPOS:
+  trunk:
+    - iConsole
+    - MTDates
+    - Toast
+    - YYModel
+
+SPEC CHECKSUMS:
+  iConsole: 823d9b14ac90f0a2a4fc9bf6a973a03ba9c4c7eb
+  MTDates: c65affdfb7b34001c5c9e3fe0beac4b1b8334a58
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: ea6ce612b7484e6cff529c999201bc808cdd75a2
+
+COCOAPODS: 1.9.1

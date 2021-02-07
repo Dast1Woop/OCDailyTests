@@ -1,0 +1,6 @@
+framework module HTMCommon {
+  umbrella header "HTMCommon.h"
+
+  export *
+  module * { export * }
+}

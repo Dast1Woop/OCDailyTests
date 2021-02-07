@@ -298,13 +298,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5MCKBCJ7H;
+				DEVELOPMENT_TEAM = PTUCTZC4VF;
 				INFOPLIST_FILE = "UUID+keyChainTest/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.126.myldast1.UUID-keyChainTest";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zwesaywalk.huatu.guangzhou.dev1212r;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -316,13 +317,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5MCKBCJ7H;
+				DEVELOPMENT_TEAM = PTUCTZC4VF;
 				INFOPLIST_FILE = "UUID+keyChainTest/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.126.myldast1.UUID-keyChainTest";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zwesaywalk.huatu.guangzhou.dev1212r;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
