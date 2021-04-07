@@ -30,6 +30,11 @@
     }else{
         NSLog(@"lStr is nil");
     }
+    
+    NSLog(@"str len = %lu", (unsigned long)lStr.length);
+    if (0 == lStr.length) {
+        NSLog(@"lst len == 0");
+    }
 }
 
 
