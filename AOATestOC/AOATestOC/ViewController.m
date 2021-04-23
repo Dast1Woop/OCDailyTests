@@ -57,6 +57,9 @@ static inline void ht_dispatch_main(void(^block)(void)) {
     self.gAOABleObj = [[AOABle alloc] init];
     
     __weak typeof(self) weakSelf = self;
+    self.gAOABleObj.bleStartFailed = ^(NSError * err) {
+        NSLog(@"err:bleStartFailed");
+    };
     self.gAOABleObj.blePowerOn = ^{
         __strong typeof(self) strongSelf = weakSelf;
         if (strongSelf) {

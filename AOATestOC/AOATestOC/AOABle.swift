@@ -44,7 +44,7 @@ class AOABle:NSObject{
     /**
      * 电池电量
      * 值域：[0, 10]
-     * 实际电量为 值 * 10 * 100%
+     * 实际电量为 值 * 10%
      * 例：值为 5 表示电池电量为 50%
      */
     public var battery: UInt{
@@ -61,6 +61,8 @@ class AOABle:NSObject{
      */
     var blePowerOn:(()->())?
     
+    var bleStartFailed:((Error)->())?
+    
     override init() {
         super.init()
         
@@ -76,13 +78,16 @@ class AOABle:NSObject{
     public func start(){
         do{
             try ble.start()
-            print("start")
+            print("aoa ble start")
         }catch let err{
-            print(err)
+            print("err:", err)
+            if let bleStartFailed = bleStartFailed {
+                bleStartFailed(err)
+            }
         }
     }
     public func stop(){
-        print("stop")
+        print("aoa ble stop")
         ble.stop()
     }
 }
