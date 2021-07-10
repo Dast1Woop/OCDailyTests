@@ -19,7 +19,7 @@
     
     int a = 512;
     int b = (a>>8)&0b11;
-    NSLog(@"%d",b);
+    NSLog(@"%d test",b);
     
     int a1 = 256;
     int b1 = (a1>>8)&0b11;
