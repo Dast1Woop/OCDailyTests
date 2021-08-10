@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2F7DA6E26C256EE00CD0FBA /* SecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F7DA6D26C256EE00CD0FBA /* SecViewController.m */; };
 		C2F9AD5526C22C18007951D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F9AD5426C22C18007951D2 /* AppDelegate.m */; };
 		C2F9AD5826C22C18007951D2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F9AD5726C22C18007951D2 /* SceneDelegate.m */; };
 		C2F9AD5B26C22C18007951D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F9AD5A26C22C18007951D2 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2F7DA6C26C256EE00CD0FBA /* SecViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecViewController.h; sourceTree = "<group>"; };
+		C2F7DA6D26C256EE00CD0FBA /* SecViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecViewController.m; sourceTree = "<group>"; };
 		C2F9AD5026C22C18007951D2 /* TestMainAsync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMainAsync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F9AD5326C22C18007951D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C2F9AD5426C22C18007951D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				C2F9AD5726C22C18007951D2 /* SceneDelegate.m */,
 				C2F9AD5926C22C18007951D2 /* ViewController.h */,
 				C2F9AD5A26C22C18007951D2 /* ViewController.m */,
+				C2F7DA6C26C256EE00CD0FBA /* SecViewController.h */,
+				C2F7DA6D26C256EE00CD0FBA /* SecViewController.m */,
 				C2F9AD5C26C22C18007951D2 /* Main.storyboard */,
 				C2F9AD5F26C22C19007951D2 /* Assets.xcassets */,
 				C2F9AD6126C22C19007951D2 /* LaunchScreen.storyboard */,
@@ -148,6 +153,7 @@
 				C2F9AD5B26C22C18007951D2 /* ViewController.m in Sources */,
 				C2F9AD5526C22C18007951D2 /* AppDelegate.m in Sources */,
 				C2F9AD6626C22C19007951D2 /* main.m in Sources */,
+				C2F7DA6E26C256EE00CD0FBA /* SecViewController.m in Sources */,
 				C2F9AD5826C22C18007951D2 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "SecViewController.h"
 
 @interface ViewController ()
 
@@ -45,6 +46,15 @@
         NSLog(@"bbb");
     });
     NSLog(@"444");
+    
+   
+}
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    SecViewController *vc = [[SecViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:^{
+            
+    }];
 }
 
 - (void)log{
