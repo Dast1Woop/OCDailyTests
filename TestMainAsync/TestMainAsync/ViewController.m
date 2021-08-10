@@ -27,6 +27,31 @@
  */
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self test2];
+}
+- (void)test2{
+    NSLog(@"111");
+    NSLog(@"222");
+    
+    //sync main会崩溃，死锁
+//    dispatch_sync(dispatch_get_global_queue(0, 0), ^{//似乎没意义，在主线程
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{//在子线程
+        dispatch_async(dispatch_get_main_queue(), ^{//在主线程，runloop自动开启，performSelector会根据runloop执行
+        NSLog(@"thread:%@", [NSThread currentThread]);
+        NSLog(@"333");
+        
+        //少用。底层是timer，任务加入当前线程runloop，等runloop开启（主线程默认开启，子线程需要手动开启），且为 defaultmode 再执行。延迟0s不意味着立即执行。
+        [self performSelector:@selector(log) withObject:nil afterDelay:0];
+        NSLog(@"bbb");
+    });
+    NSLog(@"444");
+}
+
+- (void)log{
+    NSLog(@"%s", __func__);
+}
+
+- (void)test{
     NSLog(@"111");
     NSLog(@"222");
     //sync main会崩溃，死锁
